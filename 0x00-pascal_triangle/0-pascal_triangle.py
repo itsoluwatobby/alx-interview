@@ -5,6 +5,7 @@ create a function that returns a list of lists of integers representing
 the Pascal's triangle of n
 """
 
+
 def pascal_triangle(n):
     """Returns a list on argument n"""
 
@@ -12,22 +13,16 @@ def pascal_triangle(n):
         return []
 
     pascalTriangle = []
-    subList = []
 
-    while n != 0:
+    for i in range(n):
+        sub_list = []
 
-        if len(subList) < 3:
-            subList.append(1)
-        else:
-            listLength = len(subList)
-            for i in range(listLength):
-                # subList = [1]
-                # if i == 0:
-                 #   continue
-                subList.append(subList[i] + subList[i + 1])
-            subList.append(1)
-        pascalTriangle.append(subList)
-        subList = []
-        n -= 1
+        for j in range(i+1):
+            if j == 0 or j == i:
+                sub_list.append(1)
+            else:
+                val = pascalTriangle[i-1][j-1] + pascalTriangle[i-1][j]
+                sub_list.append(val)
+        pascalTriangle.append(sub_list)
 
     return pascalTriangle
