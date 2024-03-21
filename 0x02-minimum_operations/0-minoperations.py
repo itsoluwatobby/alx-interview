@@ -15,11 +15,12 @@ def minOperations(n):
     """Returns the number of steps"""
     if n < 2:
         return 0
-    steps = [0] * (n + 1)
-    for i in range(2, n + 1):
-        steps[i] = i
-        for j in range(2, i):
-            if i % j == 0:
-                steps[i] = min(steps[i], steps[j] + i // j)
+    ops, steps = 0, 2
+    while steps <= n:
+        if n % steps == 0:
+            ops += steps
+            n = n / steps
+            steps -= 1
+        steps += 1
 
-    return steps[n]
+    return ops
