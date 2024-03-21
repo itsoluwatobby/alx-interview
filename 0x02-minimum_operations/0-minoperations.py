@@ -13,8 +13,8 @@ of operations needed to result in exactly n H characters in the file.
 
 def minOperations(n):
     """Returns the number of steps"""
-    if n <= 1:
-        return n
+    if n < 2:
+        return 0
     steps = [0] * (n + 1)
     for i in range(2, n + 1):
         steps[i] = i
