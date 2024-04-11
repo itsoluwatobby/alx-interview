@@ -1,4 +1,3 @@
-
 #!/usr/bin/python3
 """
    Description: The N queens puzzle is the challenge of placing N non-attacking
@@ -138,4 +137,3 @@ if __name__ == "__main__":
     """
     number = validate(sys.argv)
     solve(number)
-
