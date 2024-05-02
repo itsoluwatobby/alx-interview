@@ -4,7 +4,7 @@
 """
 
 
-def makeChange(coins: list[int], total: int) -> int:
+def makeChange(coins, total):
     """Returns the list fewest number of cooins needed to meet the
     the given total
 
@@ -20,12 +20,10 @@ def makeChange(coins: list[int], total: int) -> int:
     minVals[0] = 0
 
     for coin in coins:
-        # Update dp[i] for all i >= coin
         for i in range(coin, total + 1):
             minVals[i] = min(minVals[i], minVals[i - coin] + 1)
 
-    # if minVals[total] = infinity,it means total cannot be met by any
-    # number of coins
+    # if minVals[total] = infinity
     if minVals[total] == float('inf'):
         return -1
     else:
