@@ -23,7 +23,8 @@ def isWinner(x, nums):
         nums (int[]): array of moves
     """
     winner = ''
-    PLAYER1, PLAYER2 = 'Maria', 'Ben'
+    PLAYER1 = 'Maria'
+    PLAYER2 = 'Ben'
 
     if not len(nums):
         return None
