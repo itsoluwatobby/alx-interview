@@ -23,9 +23,9 @@ def isWinner(x, nums):
         nums (int[]): array of moves
     """
     winner = ''
-    PLAYER1 = 'Maria'
-    PLAYER2 = 'Ben'
+    players = {'Maria': 0, 'Ben': 0}
 
+    names = list(players.keys())
     if not len(nums):
         return None
     for num in nums:
@@ -37,11 +37,14 @@ def isWinner(x, nums):
                 prime_moves.append(move)
 
         if not len(prime_moves):
-            winner = PLAYER2
+            players[names[1]] = players[names[1]] + 1
         else:
             for i in range(len(prime_moves)):
-                if i % 2 == 0:
-                    winner = PLAYER1
+                if i % 2 != 0:
+                    players[names[0]] = players[names[0]] + 1
                 else:
-                    winner = PLAYER2
+                    players[names[1]] = players[names[1]] + 1
+
+    most_wins = max(players[names[0]], players[names[1]])
+    winner = names[0] if players[names[0]] == most_wins else names[1]
     return winner
