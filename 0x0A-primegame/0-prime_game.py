@@ -4,7 +4,7 @@
 """
 
 
-def is_prime(n: int) -> bool:
+def is_prime(n):
     """returns true if numer is prime"""
     if (n <= 1):
         return False
@@ -14,7 +14,7 @@ def is_prime(n: int) -> bool:
     return True
 
 
-def isWinner(x: int, nums: list[int]) -> str:
+def isWinner(x, nums):
     """
     Return: name of the player that won the most rounds
 
